@@ -17,9 +17,14 @@ app.use(parser.json())
 
 // view engine setup
 
+//importing routes
+const index = require("./routes/index")
+const users = require("./routes/users");
 
-// app.use('/', indexRouter);
-// app.use('/users', usersRouter);
+
+
+ app.use('/', index);
+ app.use('/users', users);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -1,22 +1,22 @@
+const mongoose = require("mongoose");
 const db_schema = require("../database/index");
-
 
 const schema = new db_schema(
   {
     user_id: {
-        type: Schema.Types.ObjectId,
+        type: db_schema.Types.ObjectId,
         ref: "users"
       },
     class_id: {
-        type: Schema.Types.ObjectId,
+        type: db_schema.Types.ObjectId,
         ref: "users"
       },
     subject_ids: {
-        type: [Schema.Types.ObjectId],
+        type: [db_schema.Types.ObjectId],
         ref: "subjects"
       },
     society_ids: {
-        type: [Schema.Types.ObjectId],
+        type: [db_schema.Types.ObjectId],
         ref: "subjects"
       },
   },
@@ -25,4 +25,6 @@ const schema = new db_schema(
   }
 );
 
-module.exports = mongoose.model("students", schema);
+const student =  mongoose.model("student", schema);
+
+module.exports = student;

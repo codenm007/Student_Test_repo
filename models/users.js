@@ -1,5 +1,5 @@
+const mongoose = require("mongoose");
 const db_schema = require("../database/index");
-
 
 const schema = new db_schema(
     {
@@ -42,18 +42,10 @@ const schema = new db_schema(
             type:Boolean
         },
         role_code: {
-          type: Schema.Types.ObjectId,
+          type: db_schema.Types.ObjectId,
           ref: "user_role",
           required: true,
         },
-        city_id: {
-            type: Schema.Types.ObjectId,
-            ref: "cities"
-          },
-        country_id: {
-            type: Schema.Types.ObjectId,
-            ref: "countries"
-          },  
         profile_pic: {
           type: String
         },
@@ -63,4 +55,6 @@ const schema = new db_schema(
       }
 );
 
-module.exports = mongoose.model("users", schema);
+const users =  mongoose.model("users", schema);
+
+module.exports = users;
