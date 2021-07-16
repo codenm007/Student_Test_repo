@@ -58,7 +58,22 @@ const student_add_subjects = async(req,res,next) => {
     })
 }
 
+const student_add_societies = async(req,res,next) => {
+    const data = req.body;
+    console.log(data)
+    student.update({"user_id":`${data.user_id}`},{$push :{"society_ids": data.society_ids}}).then(response =>{
+        console.log(response)
+        res.status(200).json({
+            status:200,
+            message:"Society added successfully!"
+        })
+    }).catch(err =>{
+        console.log(err);
+    })
+}
+
 module.exports = {
     register_student,
-    student_add_subjects
+    student_add_subjects,
+    student_add_societies
 };
