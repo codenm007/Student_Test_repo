@@ -1,7 +1,7 @@
 ## Important Info
 
-### Postman document link [here. ]('https://documenter.getpostman.com/view/12866660/TzmCfsDH')
-
+### Postman Documentation Link : [Click here](https://documenter.getpostman.com/view/12866660/TzmCfsDH)
+  
 > 1. **Get into the cloned folder and tye** `npm i`
 > 2. **Rename the demo.env to .env and enter the imortant env details** 
 > 3. **Start the server by** `npm start`
