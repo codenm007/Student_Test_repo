@@ -12,11 +12,7 @@ const opts = {
     //getting user id from db
     //console.log(payload);
    // mongo find by id code will go here 
-    User.forge({ id: payload.id })
-      .fetch()
-      .then((res) => {
-        next(null, res);
-      });
+    let user_data = await User.findById(id)
 
   });
   
