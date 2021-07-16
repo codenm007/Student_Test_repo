@@ -99,9 +99,33 @@ const find_students_by_class_id = async(req,res,next) =>{
     })
 }
 
+//aggregation queries
+const find_students_by_society = async(req,res,next) =>{
+
+    let data = req.body;
+
+    let society_id = mongoose.Types.ObjectId(data.society_id);
+
+    student.aggregate([
+        {$match: {society_ids:society_id}},
+        {$group: {_id: "$user_id"}},
+        {$sort: {total: -1}} //sorting in descending order
+    ]).then(data =>{
+        console.log(data);
+        res.status(200).json({
+            status:200,
+            message:"students fetched successfully",
+            data:data
+        })
+    }).catch(err=>{
+        console.log(err);
+    })
+}
+
 module.exports = {
     register_student,
     student_add_subjects,
     student_add_societies,
-    find_students_by_class_id
+    find_students_by_class_id,
+    find_students_by_society
 };
