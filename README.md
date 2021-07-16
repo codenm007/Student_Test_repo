@@ -1,5 +1,7 @@
 ## Important Info
 
+### Postman document link [here. ]('https://documenter.getpostman.com/view/12866660/TzmCfsDH')
+
 #### Demo heroku server link [here. ](https://localrestro.herokuapp.com/)  
 
 > 1. **Get into the cloned folder and tye** `npm i`
