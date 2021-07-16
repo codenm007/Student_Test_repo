@@ -8,7 +8,8 @@ const register_student = async (req, res, next) => {
   //console.log( data);
     //checking if the user is already preseent or not 
     console.log(data.email)
-  users.find({email:data.email}).then(()=>{
+  users.find({email:data.email}).then((data)=>{
+      console.log(data);
       res.status(200).json({
           status:200,
           message:"User already present"
@@ -43,6 +44,21 @@ const register_student = async (req, res, next) => {
 
 };
 
+const student_add_subjects = async(req,res,next) => {
+    const data = req.body;
+    console.log(data)
+    student.update({"user_id":`${data.user_id}`},{$push :{"subject_ids": data.subject_id}}).then(response =>{
+        console.log(response)
+        res.status(200).json({
+            status:200,
+            message:"Subject added successfully!"
+        })
+    }).catch(err =>{
+        console.log(err);
+    })
+}
+
 module.exports = {
     register_student,
+    student_add_subjects
 };
