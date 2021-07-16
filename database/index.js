@@ -1,0 +1,11 @@
+const mongoose = require('mongoose');
+mongoose.connect(
+  `${process.env.mongodb_url}`
+).then(result => {
+    // console.log("Connected successfully !",result)
+})
+.catch(err => console.log(err))
+
+const db_schema = mongoose.Schema;
+
+module.exports = db_schema
